@@ -41,6 +41,10 @@ jobs:
       run: |
         wget ${{ github.event.inputs.IMG_URL }}
         ls
+     
+     - name: device_info.py
+      run: |
+        cat /home/tt/.local/lib/python3.12/site-packages/sebaubuntu_libs/libandroid/device_info.py  
       
     - name: Start build
       run: |
