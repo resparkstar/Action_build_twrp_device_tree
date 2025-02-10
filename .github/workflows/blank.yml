@@ -42,19 +42,19 @@ jobs:
         wget ${{ github.event.inputs.IMG_URL }}
         ls
       
-    - name: Start build
+    - name: ZIP twrpdtgen
       run: |
         python3 -m twrpdtgen -o dt/ *.img
 
     - name: ZIP device tree
       run: |
-        zip -r DeviceTree.zip ./dt
+        zip -r twrpdtgen.zip ./dt
 
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          ./DeviceTree.zip
+          ./twrpdtgen.zip
         name: TWRP_Device_Tree-${{ github.run_id }}
         tag_name: ${{ github.run_id }}
         body: DeviceTree for twrp
