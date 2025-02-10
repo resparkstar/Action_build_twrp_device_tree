@@ -41,10 +41,6 @@ jobs:
       run: |
         wget ${{ github.event.inputs.IMG_URL }}
         ls
-      
-    - name: ZIP twrpdtgen
-      run: |
-        python3 -m twrpdtgen -o dt/ *.img
 
     - name: ZIP device tree
       run: |
